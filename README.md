@@ -1,2 +1,5 @@
-# dieta-descomplicada
-Aplicativo mobile desenvolvido com Ionic e php, com o objetivo de tornar a contagem de macros do dia mais simples e intuitiva
+-- logo
+
+# Dieta descomplicada
+
+Organize sua dieta de forma fácil e prática
