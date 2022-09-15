@@ -1,9 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-grid>
+			<ion-row class="ion-align-items-center">
+				<ion-col>
+					<ion-title>Perfil</ion-title>
+				</ion-col>
+
+				<ion-col class="content-end">
+					<ion-button size="small" color="dark" shape="round"><ion-icon name="notifications-circle-outline" class="notification-icon"></ion-icon></ion-button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="my-content-center">
+        <img src="../../assets/temp_images/profile_pic/Foto-perfil.jpeg" class="avatar-principal"/>
+      </ion-col>
 
+      <ion-col class="my-content-center">
+        <div class="d-flex-col">
+          <ion-text color="primary"> <strong>Bem vindo, --Nome-- </strong></ion-text>
+          <ion-text color="dark">Começe a contar suas calorias hoje! 🔥</ion-text>
+          <ion-text color="medium"><small>Adicione as refeições que você comeu nos seguintes horários</small></ion-text>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="light-color-section">
+    <ion-text color="secondary"><h3>Seus horários de comida</h3></ion-text>
+
+    <ion-list>
+      <ion-item>
+        <ion-label><ion-text color="medium">(06:30)</ion-text> Café da manhã</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item >
+        <ion-label><ion-text color="medium">(12:30)</ion-text> Almoço</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-text color="medium">(17:00)</ion-text> Lanche</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-text color="medium">(20:30)</ion-text> Janta</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="light-color-section">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text color="secondary"><h3>Calorias do dia</h3></ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-chip color="warning">🔥 <strong>1500 cal</strong></ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button expand="full">Ir para o sumário do dia</ion-button>
+  </div>
 </ion-content>

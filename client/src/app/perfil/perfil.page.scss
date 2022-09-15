@@ -1,0 +1,46 @@
+.border{
+    border: 1px solid red;
+}
+
+.content-end{
+    display: flex;
+    justify-content: end;
+}
+
+.notification-icon{
+    font-size: 23px;
+    color: #ffc409;
+}
+
+.my-content-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-col{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+ion-content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+
+  .avatar-principal{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .light-color-section{
+    margin-top: 25px;
+    padding: 15px;
+    background: var(--ion-color-light);
+  }
+}
