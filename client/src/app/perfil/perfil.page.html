@@ -24,7 +24,7 @@
       <ion-col class="my-content-center">
         <div class="d-flex-col">
           <ion-text color="primary"> <strong>Bem vindo, --Nome-- </strong></ion-text>
-          <ion-text color="dark">Começe a contar suas calorias hoje! 🔥</ion-text>
+          <ion-text color="dark">Começe a contar suas calorias hoje! <ion-icon name="flame" color="warning"></ion-icon></ion-text>
           <ion-text color="medium"><small>Adicione as refeições que você comeu nos seguintes horários</small></ion-text>
         </div>
 
@@ -36,21 +36,21 @@
     <ion-text color="secondary"><h3>Seus horários de comida</h3></ion-text>
 
     <ion-list>
-      <ion-item>
+      <ion-item button (click)="setHorario('Café da manhã'); setOpen(true)">
         <ion-label><ion-text color="medium">(06:30)</ion-text> Café da manhã</ion-label>
         <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
       </ion-item>
 
-      <ion-item >
+      <ion-item button (click)="setHorario('Almoço'); setOpen(true)">
         <ion-label><ion-text color="medium">(12:30)</ion-text> Almoço</ion-label>
         <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
       </ion-item>
 
-      <ion-item>
+      <ion-item button (click)="setHorario('Lanche'); setOpen(true)">
         <ion-label><ion-text color="medium">(17:00)</ion-text> Lanche</ion-label>
         <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
       </ion-item>
-      <ion-item>
+      <ion-item button (click)="setHorario('Janta'); setOpen(true)">
         <ion-label><ion-text color="medium">(20:30)</ion-text> Janta</ion-label>
         <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
       </ion-item>
@@ -64,7 +64,7 @@
           <ion-text color="secondary"><h3>Calorias do dia</h3></ion-text>
         </ion-col>
         <ion-col>
-          <ion-chip color="warning">🔥 <strong>1500 cal</strong></ion-chip>
+          <ion-chip color="warning"><ion-icon name="flame"></ion-icon> <strong>1500 cal</strong></ion-chip>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -72,5 +72,140 @@
     <ion-button expand="full">Ir para o sumário do dia</ion-button>
   </div>
 
-  
+  <div class="light-color-section">
+    <ion-text color="secondary"><h3>Altere suas metas nutricionais</h3></ion-text>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="input-items">
+            <ion-item>
+              <ion-label position="floating">Carboidratos</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="input-items">
+            <ion-item>
+              <ion-label position="floating">Proteínas</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="input-items">
+            <ion-item>
+              <ion-label position="floating">Gorduras</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="input-items">
+            <ion-item>
+              <ion-label position="floating">Sódio</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-text color="medium" class="ion-margin-start"><small>Em miligramas</small></ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="input-items">
+            <ion-item>
+              <ion-label position="floating">Calorias</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-text color="medium" class="ion-margin-start"><small>Em cal</small></ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="success" fill="solid" expand="block">Atualizar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Fechar</ion-button>
+          </ion-buttons>
+          <ion-title>Comer {{horario}}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-text color="tertiary"><h4>Suas Refeições</h4></ion-text>
+        <ion-text color="medium"><p>Qual desses pratos você comeu para a refeição de <strong>{{horario}}</strong>?</p></ion-text>
+
+        <div>
+          <ion-searchbar animated placeholder="Pesquisar refeição"></ion-searchbar>
+
+          <ion-list class="lista-refeicoes">
+            <ion-radio-group value="">
+              <ion-item>
+                <ion-label>
+                  <ion-text color="dark"><h5 class="tiny-titles">Nome do prato</h5></ion-text>
+                  <p>alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, </p>
+                </ion-label>
+                <ion-radio slot="end" value="1" mode="ios"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <ion-text color="dark"><h5 class="tiny-titles">Nome do prato</h5></ion-text>
+                  <p>alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, </p>
+                </ion-label>
+                <ion-radio slot="end" value="2" mode="ios"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <ion-text color="dark"><h5 class="tiny-titles">Nome do prato</h5></ion-text>
+                  <p>alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, </p>
+                </ion-label>
+                <ion-radio slot="end" value="3" mode="ios"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <ion-text color="dark"><h5 class="tiny-titles">Nome do prato</h5></ion-text>
+                  <p>alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, </p>
+                </ion-label>
+                <ion-radio slot="end" value="4" mode="ios"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <ion-text color="dark"><h5 class="tiny-titles">Nome do prato</h5></ion-text>
+                  <p>alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, alimento, </p>
+                </ion-label>
+                <ion-radio slot="end" value="5" mode="ios"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-button expand="full" color="success" (click)="cancel()">Já comi!</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

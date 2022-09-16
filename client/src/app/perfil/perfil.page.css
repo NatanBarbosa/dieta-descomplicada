@@ -42,5 +42,9 @@ ion-content .light-color-section {
   padding: 15px;
   background: var(--ion-color-light);
 }
+ion-content .tiny-titles {
+  font-weight: bold;
+  font-size: 16px;
+}
 
 /*# sourceMappingURL=perfil.page.css.map */

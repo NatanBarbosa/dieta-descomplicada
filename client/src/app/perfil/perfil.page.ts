@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
+import { IonModal } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-perfil',
@@ -7,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  @ViewChild(IonModal) modal: IonModal;
+  isModalOpen = false;
+  horario: string;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  cancel() {
+    this.isModalOpen = false;
+  }
+
+  setHorario(horario: string) {
+    this.horario = horario;
+  }
 
   ngOnInit() {
   }
