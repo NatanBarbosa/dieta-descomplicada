@@ -1,9 +1,104 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sumario</ion-title>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-title>Sumário</ion-title>
+        </ion-col>
+
+        <ion-col class="content-end">
+          <ion-button size="small" color="dark" shape="round"><ion-icon name="notifications-circle-outline" class="notification-icon"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="light-color-section">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col><strong>Data:</strong></ion-col>
+        <ion-col><ion-text color="tertiary">12/09/2022</ion-text></ion-col>
+        <ion-col class="content-end"><ion-button size="small">Alterar</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
+  <div class="calories-box">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="3">
+          <ion-img src="../../assets/icon/calories.png"></ion-img>
+        </ion-col>
+
+        <ion-col size="9">
+          <h3>Meta de calorias diárias</h3>
+          <p><ion-text color="warning"><strong>1500 cal </strong> / 2000 cal</ion-text></p>
+
+          <ion-row class="ion-align-items-center">
+            <ion-col size="9"><ion-progress-bar value="0.75" color="warning"></ion-progress-bar></ion-col>
+            <ion-col size="3"><ion-text color="warning"><strong>75%</strong></ion-text></ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Carboidratos</ion-card-title>
+          </ion-card-header>
+          <img src="../../assets/images/card_carbo.jpg" class="card_img"/>
+          <ion-card-content>
+            <ion-text color="primary"><strong>130g</strong> / 200g <strong>(75%)</strong></ion-text>
+            <ion-progress-bar value="0.6" color="primary" class="ion-margin-top"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Proteínas</ion-card-title>
+          </ion-card-header>
+          <img src="../../assets/images/card_proteina.jpg" class="card_img"/>
+          <ion-card-content>
+            <ion-text color="primary"><strong>75g</strong> / 100g <strong>(75%)</strong></ion-text>
+            <ion-progress-bar value="0.75" color="primary" class="ion-margin-top"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Gorduras</ion-card-title>
+          </ion-card-header>
+          <img src="../../assets/images/card_gordura.webp" class="card_img"/>
+          <ion-card-content>
+            <ion-text color="primary"><strong>50g</strong> / 70g <strong>(85%)</strong></ion-text>
+            <ion-progress-bar value="0.85" color="primary" class="ion-margin-top"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Sódio</ion-card-title>
+          </ion-card-header>
+          <img src="../../assets/images/card_sodio.jpg" class="card_img"/>
+          <ion-card-content>
+            <ion-text color="primary"><strong>700mg</strong> / 600mg <strong>(115%)</strong></ion-text>
+            <ion-progress-bar value="1" color="primary" class="ion-margin-top"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
