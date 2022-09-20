@@ -14,31 +14,23 @@
   background: var(--ion-color-light);
 }
 
-.no-margin-top {
-  margin-top: 0;
-}
-
 .dark-title {
-  font-weight: 700;
-  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
 }
 
-.calories-box {
-  width: 90%;
-  background: var(--ion-color-primary);
-  color: white;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 18px;
-}
-.calories-box ion-img {
-  width: 100%;
+.hint {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  margin-top: 7px;
 }
 
-.card_img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
+ion-searchbar.my-search-bar {
+  --box-shadow: none;
+  border-bottom: 1px solid black;
+  padding: 2px;
 }
 
 .macro-table {
@@ -57,4 +49,4 @@
   font-weight: 600;
 }
 
-/*# sourceMappingURL=sumario.page.css.map */
+/*# sourceMappingURL=personalizar.page.css.map */

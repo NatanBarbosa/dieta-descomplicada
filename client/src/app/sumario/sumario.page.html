@@ -15,12 +15,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="light-color-section">
+  <div class="light-color-section no-margin-top">
     <ion-grid>
       <ion-row class="ion-align-items-center">
-        <ion-col><strong>Data:</strong></ion-col>
-        <ion-col><ion-text color="tertiary">12/09/2022</ion-text></ion-col>
-        <ion-col class="content-end"><ion-button size="small">Alterar</ion-button></ion-col>
+        <ion-col size="3"><strong>Data:</strong></ion-col>
+        <ion-col size="9" class="content-end"><ion-datetime-button datetime="datetime"></ion-datetime-button></ion-col>
       </ion-row>
     </ion-grid>
   </div>
@@ -101,4 +100,129 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div class="ion-padding">
+    <h3 class="dark-title">Refeições do dia</h3>
+
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label><strong>Café da manhã</strong> - Bacon com ovos</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <table class="macro-table">
+            <thead>
+              <tr>
+                <th>Macros</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calorias</td>
+                <td>300 cal</td>
+              </tr>
+              <tr>
+                <td>Carboidratos</td>
+                <td>100g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>30g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>10g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>50mg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second">
+        <ion-item slot="header" color="light">
+          <ion-label><strong>Almoço</strong> - Arroz e frango</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <table class="macro-table">
+            <thead>
+            <tr>
+              <th>Macros</th>
+              <th>Quantidade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Calorias</td>
+              <td>300 cal</td>
+            </tr>
+            <tr>
+              <td>Carboidratos</td>
+              <td>100g</td>
+            </tr>
+            <tr>
+              <td>Proteínas</td>
+              <td>30g</td>
+            </tr>
+            <tr>
+              <td>Gorduras</td>
+              <td>10g</td>
+            </tr>
+            <tr>
+              <td>Sódio</td>
+              <td>50mg</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="third">
+        <ion-item slot="header" color="light">
+          <ion-label><strong>Janta</strong> - Bife</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <table class="macro-table">
+            <thead>
+            <tr>
+              <th>Macros</th>
+              <th>Quantidade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Calorias</td>
+              <td>300 cal</td>
+            </tr>
+            <tr>
+              <td>Carboidratos</td>
+              <td>100g</td>
+            </tr>
+            <tr>
+              <td>Proteínas</td>
+              <td>30g</td>
+            </tr>
+            <tr>
+              <td>Gorduras</td>
+              <td>10g</td>
+            </tr>
+            <tr>
+              <td>Sódio</td>
+              <td>50mg</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
 </ion-content>
+

@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalizarPage implements OnInit {
 
-  constructor() { }
+  public isHorariosOpen = false;
+  public isAlimentosOpen = false;
+  public isRefeicaoOpen = false;
+
+  setHorariosOpen(isOpen: boolean) {
+    this.isHorariosOpen = isOpen;
+  }
+
+  setAlimentosOpen(isOpen: boolean) {
+    this.isAlimentosOpen = isOpen;
+  }
+
+  setRefeicaoOpen(isOpen: boolean) {
+    this.isRefeicaoOpen = isOpen;
+  }
 
   ngOnInit() {
   }

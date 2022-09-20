@@ -14,6 +14,15 @@
   background: var(--ion-color-light);
 }
 
+.no-margin-top{
+  margin-top: 0;
+}
+
+.dark-title{
+  font-weight: 700;
+  text-align: center;
+}
+
 .calories-box{
   width: 90%;
   background: var(--ion-color-primary);
@@ -31,4 +40,24 @@
   width: 100%;
   height: 120px;
   object-fit: cover;
+}
+
+.macro-table{
+  width: 100%;
+
+  tr{
+    border-bottom: 1px solid var(--ion-color-light-shade);
+
+    th, td{
+      padding: 15px;
+      text-align: center;
+    }
+
+    th{
+      color: var(--ion-color-primary);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+  }
 }
