@@ -55,7 +55,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <ion-button color="secondary" size="full">Adicionar novo horário</ion-button>
+        <ion-button color="secondary" size="full" (click)="setAddHorarioOpen(true)">Adicionar novo horário</ion-button>
 
         <div class="hint">
           <ion-icon name="alert-circle-outline" slot="start" color="warning"></ion-icon>
@@ -143,7 +143,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <ion-button color="secondary" size="full">Adicionar novo alimento</ion-button>
+        <ion-button color="secondary" size="full" (click)="setAddAlimentoOpen(true)">Adicionar novo alimento</ion-button>
 
         <ion-searchbar placeholder="Pesquise um alimento" show-clear-button="focus" class="ion-margin-top my-search-bar"></ion-searchbar>
 
@@ -275,7 +275,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <ion-button color="secondary" size="full">Montar nova refeição</ion-button>
+        <ion-button color="secondary" size="full" (click)="setAddRefeicaoOpen(true)">Montar nova refeição</ion-button>
 
         <ion-searchbar placeholder="Pesquise uma refeição" show-clear-button="focus" class="ion-margin-top my-search-bar"></ion-searchbar>
 
@@ -410,6 +410,193 @@
             </div>
           </ion-accordion>
         </ion-accordion-group>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isAddHorarioOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Adicionar Horário</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setAddHorarioOpen(false)"><ion-icon name="close-outline" size="large"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-text color="tertiary"><h3>Monte um novo horário de refeição!</h3></ion-text>
+        <ion-text color="medium"><small>A que horas você costuma comer essa determinada refeição do dia?</small></ion-text>
+
+        <form>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label position="floating">Nome do horário</ion-label>
+              <ion-input type="text" placeholder="Ex.: Café da manhã, Almoço, Janta etc."></ion-input>
+            </ion-item>
+          </div>
+
+          <ion-text color="dark" class="ion-text-center"><h4>Horário</h4></ion-text>
+          <ion-datetime presentation="time" class="time-picker"></ion-datetime>
+
+          <ion-button class="ion-margin-top" color="success" expand="full">Adicionar</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isAddAlimentoOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Adicionar Alimento</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setAddAlimentoOpen(false)"><ion-icon name="close-outline" size="large"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-text color="tertiary"><h3>Adicione um novo alimento em seu cardápio</h3></ion-text>
+        <ion-text color="medium"><small>Esquecemos de listar algum alimento importante? Qual seria? Preencha todas as informações nutricionais</small></ion-text>
+
+        <div class="ion-padding">
+          <form>
+            <ion-item>
+              <ion-label position="floating">Nome do alimento</ion-label>
+              <ion-input type="text" placeholder="Ex.: Maçã, Arroz Branco, Feijão, Frango desfiado etc."></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Peso de referência (em gramas)</ion-label>
+              <ion-input type="text" placeholder="Exemplo: 100, 30 etc."></ion-input>
+            </ion-item>
+
+            <h4 class="dark-title">Informações nutricionais</h4>
+            <ion-text color="medium">Preencher com base no peso de referência</ion-text>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Carboidratos</ion-label>
+                    <ion-input type="text" placeholder="em gramas"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Proteínas</ion-label>
+                    <ion-input type="text" placeholder="em gramas"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Gorduras</ion-label>
+                    <ion-input type="text" placeholder="em gramas"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Sódio</ion-label>
+                    <ion-input type="text" placeholder="em miligramas"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Calorias</ion-label>
+                    <ion-input type="text" placeholder="em kcal"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-button color="success" expand="full">Adicionar</ion-button>
+          </form>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isAddRefeicaoOpen" class="add-refeicao-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Adicionar Refeição</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setAddRefeicaoOpen(false)"><ion-icon name="close-outline" size="large"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-text color="tertiary"><h3>Monte uma nova refeição para seu cardápio</h3></ion-text>
+        <ion-text color="medium"><small>Combine os alimentos ideais em diferentes partes do dia para arrasar na sua dieta!</small></ion-text>
+
+        <form class="ion-margin-top">
+          <ion-item>
+            <ion-label position="floating">Nome da refeição</ion-label>
+            <ion-input type="text" placeholder="Ex.: Arroz e frango, Almoço principal, Refeição Livre, Janta 1"></ion-input>
+          </ion-item>
+
+          <div class="btn-box">
+            <ion-button class="add-alimentos-btn" color="secondary" id="open-selectAlimentosModal">Alimentos</ion-button>
+            <ion-text color="medium"><small>Clique aqui para escolher os alimentos que farão parte da refeição</small></ion-text>
+          </div>
+
+          <h4 class="dark-title ion-margin-top ion-text-center">Sua refeição tem</h4>
+          <table class="macro-table">
+            <thead>
+              <tr>
+                <th>Macros</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calorias</td>
+                <td>0 cal</td>
+              </tr>
+              <tr>
+                <td>Carboidratos</td>
+                <td>0g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>0g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0mg</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <ion-modal #selectAlimentosModal trigger="open-selectAlimentosModal" class="selectAlimentosModal">
+            <ng-template>
+              <ion-content>
+                <ion-toolbar>
+                  <ion-title>Modal</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button color="light" (click)="selectAlimentosModal.dismiss()"><ion-icon name="close-outline" size="large"></ion-icon></ion-button>
+                  </ion-buttons>
+                </ion-toolbar>
+
+                <div>
+                  Alimentos...
+                </div>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+
+          <ion-button color="success" expand="full">Adicionar</ion-button>
+        </form>
       </ion-content>
     </ng-template>
   </ion-modal>

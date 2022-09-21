@@ -75,71 +75,72 @@
   <div class="light-color-section">
     <ion-text color="secondary"><h3>Altere suas metas nutricionais</h3></ion-text>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div class="input-items">
-            <ion-item>
-              <ion-label position="floating">Carboidratos</ion-label>
-              <ion-input type="number"></ion-input>
-            </ion-item>
-            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
-          </div>
-        </ion-col>
+    <form>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="input-items">
+              <ion-item>
+                <ion-label position="floating">Carboidratos</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+              <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+            </div>
+          </ion-col>
 
-        <ion-col>
-          <div class="input-items">
-            <ion-item>
-              <ion-label position="floating">Proteínas</ion-label>
-              <ion-input type="number"></ion-input>
-            </ion-item>
-            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
-          </div>
-        </ion-col>
-      </ion-row>
+          <ion-col>
+            <div class="input-items">
+              <ion-item>
+                <ion-label position="floating">Proteínas</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+              <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+            </div>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col>
-          <div class="input-items">
-            <ion-item>
-              <ion-label position="floating">Gorduras</ion-label>
-              <ion-input type="number"></ion-input>
-            </ion-item>
-            <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
-          </div>
-        </ion-col>
+        <ion-row>
+          <ion-col>
+            <div class="input-items">
+              <ion-item>
+                <ion-label position="floating">Gorduras</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+              <ion-text color="medium" class="ion-margin-start"><small>Em gramas</small></ion-text>
+            </div>
+          </ion-col>
 
-        <ion-col>
-          <div class="input-items">
-            <ion-item>
-              <ion-label position="floating">Sódio</ion-label>
-              <ion-input type="number"></ion-input>
-            </ion-item>
-            <ion-text color="medium" class="ion-margin-start"><small>Em miligramas</small></ion-text>
-          </div>
-        </ion-col>
-      </ion-row>
+          <ion-col>
+            <div class="input-items">
+              <ion-item>
+                <ion-label position="floating">Sódio</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+              <ion-text color="medium" class="ion-margin-start"><small>Em miligramas</small></ion-text>
+            </div>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col>
-          <div class="input-items">
-            <ion-item>
-              <ion-label position="floating">Calorias</ion-label>
-              <ion-input type="number"></ion-input>
-            </ion-item>
-            <ion-text color="medium" class="ion-margin-start"><small>Em cal</small></ion-text>
-          </div>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="input-items">
+              <ion-item>
+                <ion-label position="floating">Calorias</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+              <ion-text color="medium" class="ion-margin-start"><small>Em cal</small></ion-text>
+            </div>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col>
-          <ion-button color="success" fill="solid" expand="block">Atualizar</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="success" fill="solid" expand="block">Atualizar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
   </div>
-
 
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
