@@ -542,9 +542,56 @@
           </ion-item>
 
           <div class="btn-box">
-            <ion-button class="add-alimentos-btn" color="secondary" id="open-selectAlimentosModal">Alimentos</ion-button>
+            <ion-button class="add-alimentos-btn" color="secondary" id="open-select_alimentos_modal">Alimentos</ion-button>
             <ion-text color="medium"><small>Clique aqui para escolher os alimentos que farão parte da refeição</small></ion-text>
           </div>
+
+          <ion-modal #select_alimentos_modal trigger="open-select_alimentos_modal" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+            <ng-template>
+              <ion-content>
+                <ion-searchbar placeholder="Pesquisar alimento" (click)="select_alimentos_modal.setCurrentBreakpoint(0.75)"></ion-searchbar>
+                <ion-list>
+                    <ion-list-header>
+                      <ion-label>
+                        <ion-text color="secondary"><h4 class="ion-text-center">Selecionar alimentos</h4></ion-text>
+                      </ion-label>
+                    </ion-list-header>
+
+                    <ion-item *ngFor="let entry of alimentosRefeicao">
+                      <ion-label>{{entry.val}}</ion-label>
+                      <ion-checkbox [(ngModel)]="entry.isChecked" slot="end" name="alimento" (ionChange)="_getSelectedItem(entry)"></ion-checkbox>
+                    </ion-item>
+                </ion-list>
+
+                <ion-button color="success" expand="full" (click)="select_qnt_alimentos_modal.isOpen = true">Próximo</ion-button>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+
+          <ion-modal #select_qnt_alimentos_modal trigger="open-select_qnt_alimentos_modal" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+            <ng-template>
+              <ion-content>
+                <ion-list>
+                  <ion-list-header>
+                    <ion-label>
+                      <ion-text color="secondary"><h4 class="ion-text-center">Adicionar quantidade dos alimentos</h4></ion-text>
+                    </ion-label>
+                  </ion-list-header>
+
+                  <ng-container *ngFor="let entry of alimentosRefeicao">
+                    <ng-container *ngIf="entry.isChecked === true">
+                      <ion-item>
+                        <ion-label position="floating">{{entry.val}}</ion-label>
+                        <ion-input [(ngModel)]="entry.qnt" (ionChange)="_getSelectedItemQnt(entry)" name="alimento-{{entry.val}}"></ion-input>
+                      </ion-item>
+                    </ng-container>
+                  </ng-container>
+                </ion-list>
+
+                <ion-button color="success" expand="full">Concluído</ion-button>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
 
           <h4 class="dark-title ion-margin-top ion-text-center">Sua refeição tem</h4>
           <table class="macro-table">
@@ -577,23 +624,6 @@
               </tr>
             </tbody>
           </table>
-
-          <ion-modal #selectAlimentosModal trigger="open-selectAlimentosModal" class="selectAlimentosModal">
-            <ng-template>
-              <ion-content>
-                <ion-toolbar>
-                  <ion-title>Modal</ion-title>
-                  <ion-buttons slot="end">
-                    <ion-button color="light" (click)="selectAlimentosModal.dismiss()"><ion-icon name="close-outline" size="large"></ion-icon></ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-
-                <div>
-                  Alimentos...
-                </div>
-              </ion-content>
-            </ng-template>
-          </ion-modal>
 
           <ion-button color="success" expand="full">Adicionar</ion-button>
         </form>

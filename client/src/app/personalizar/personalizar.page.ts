@@ -7,12 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalizarPage implements OnInit {
 
-  public isHorariosOpen = false;
-  public isAlimentosOpen = false;
-  public isRefeicaoOpen = false;
-  public isAddHorarioOpen = false;
-  public isAddAlimentoOpen = false;
-  public isAddRefeicaoOpen = false;
+  isHorariosOpen = false;
+  isAlimentosOpen = false;
+  isRefeicaoOpen = false;
+  isAddHorarioOpen = false;
+  isAddAlimentoOpen = false;
+  isAddRefeicaoOpen = false;
+  alimentosRefeicao = [
+    { val: 'arroz', isChecked: false, qnt: 0 },
+    { val: 'feijao', isChecked: false, qnt: 0 },
+    { val: 'batata', isChecked: false, qnt: 0 },
+    { val: 'carne vermelha', isChecked: false, qnt: 0 },
+    { val: 'frango desfiado', isChecked: false, qnt: 0 },
+    { val: 'brocolis', isChecked: false, qnt: 0 },
+  ];
 
   //Abrir e fechar modais
   setHorariosOpen(isOpen: boolean) {
@@ -37,6 +45,20 @@ export class PersonalizarPage implements OnInit {
 
   setAddRefeicaoOpen(isOpen: boolean) {
     this.isAddRefeicaoOpen = isOpen;
+  }
+
+  _getSelectedItem(selectedItem){
+    this.alimentosRefeicao.forEach(item => {
+      if(item.val === selectedItem.val){
+        item.isChecked = selectedItem.isChecked
+      }
+    });
+
+    console.log(this.alimentosRefeicao);
+  }
+
+  _getSelectedItemQnt(selectedItem){
+    console.log(selectedItem);
   }
 
   ngOnInit() {
