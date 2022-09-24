@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <img src="../../assets/dd_logo.png" class="logo-img">
 
+  <form action="" class="login-form">
+    <ion-item>
+      <ion-label position="floating" color="medium">Email</ion-label>
+      <ion-input type="email" placeholder="exemplo@gmail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="medium">Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <small class="forgot-pass-btn">Esqueceu a senha?</small>
+
+    <ion-button color="tertiary" expand="block">login</ion-button>
+  </form>
+  <div class="separador">Ou</div>
+  <div class="ion-padding">
+    <a routerLink="/cadastro"><ion-button color="primary" expand="block" routerDirection="foward">Cadastre-se</ion-button></a>
+  </div>
 </ion-content>

@@ -1,0 +1,26 @@
+.logo-img{
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 15px auto;
+}
+
+.login-form{
+  margin-top: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.forgot-pass-btn{
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--ion-color-secondary);
+  display: block;
+  text-align: center;
+}
+
+.separador{
+  text-align: center;
+}

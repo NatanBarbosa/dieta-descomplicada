@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <img src="../../assets/dd_logo.png" class="logo-img">
 
+  <form action="" class="login-form">
+    <ion-item>
+      <ion-label position="floating" color="medium">Nome completo</ion-label>
+      <ion-input type="email" placeholder="Tiago Santos Nascimento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="medium">Email</ion-label>
+      <ion-input type="email" placeholder="exemplo@gmail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="medium">Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="medium">Confirmar Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-button color="tertiary" expand="block">Cadastrar</ion-button>
+  </form>
+  <div class="separador">Ou</div>
+  <div class="ion-padding">
+    <a routerLink="/login" routerDirection="back"><ion-button color="primary" expand="block">Já possuo conta</ion-button></a>
+  </div>
 </ion-content>
+
