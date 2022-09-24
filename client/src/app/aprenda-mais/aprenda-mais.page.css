@@ -1,24 +1,26 @@
-.content-end{
+.content-end {
   display: flex;
   justify-content: end;
 }
 
-.notification-icon{
+.notification-icon {
   font-size: 23px;
   color: #ffc409;
 }
 
-.light-color-section{
+.light-color-section {
   margin-top: 25px;
   padding: 15px;
   background: var(--ion-color-light);
 }
 
-.no-margin-top{
+.no-margin-top {
   margin-top: 0;
 }
 
-.dark-title{
+.dark-title {
   font-weight: 700;
   text-align: center;
 }
+
+/*# sourceMappingURL=aprenda-mais.page.css.map */

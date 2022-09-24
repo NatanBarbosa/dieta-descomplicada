@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-personalizar',
@@ -14,13 +15,17 @@ export class PersonalizarPage implements OnInit {
   isAddAlimentoOpen = false;
   isAddRefeicaoOpen = false;
   alimentosRefeicao = [
-    { val: 'arroz', isChecked: false, qnt: 0 },
-    { val: 'feijao', isChecked: false, qnt: 0 },
-    { val: 'batata', isChecked: false, qnt: 0 },
-    { val: 'carne vermelha', isChecked: false, qnt: 0 },
-    { val: 'frango desfiado', isChecked: false, qnt: 0 },
-    { val: 'brocolis', isChecked: false, qnt: 0 },
+    { val: 'arroz', isChecked: false, qnt: null },
+    { val: 'feijao', isChecked: false, qnt: null },
+    { val: 'batata', isChecked: false, qnt: null },
+    { val: 'carne vermelha', isChecked: false, qnt: null },
+    { val: 'frango desfiado', isChecked: false, qnt: null },
+    { val: 'brocolis', isChecked: false, qnt: null },
   ];
+  isQntAlimentosModalOpen = false;
+  canDismiss = false;
+
+  constructor(private alertController: AlertController) {}
 
   //Abrir e fechar modais
   setHorariosOpen(isOpen: boolean) {
@@ -47,18 +52,56 @@ export class PersonalizarPage implements OnInit {
     this.isAddRefeicaoOpen = isOpen;
   }
 
-  _getSelectedItem(selectedItem){
-    this.alimentosRefeicao.forEach(item => {
-      if(item.val === selectedItem.val){
-        item.isChecked = selectedItem.isChecked
+  //Montar Refeição
+  openQntAlimentosModal(){
+    let qntAlimentosNaoCheckados = 0;
+    this.alimentosRefeicao.forEach(alimento => {
+      if(!alimento.isChecked){
+        qntAlimentosNaoCheckados++;
       }
     });
 
-    console.log(this.alimentosRefeicao);
+    if (qntAlimentosNaoCheckados === this.alimentosRefeicao.length){
+      this.presentAlert('Selecione ao menos 1 alimento');
+    } else {
+      this.isQntAlimentosModalOpen = true;
+    }
+
   }
 
-  _getSelectedItemQnt(selectedItem){
-    console.log(selectedItem);
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      header: 'Aviso!',
+      message: msg,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  closeQntAlimentosModal(){
+    this.canDismiss = true;
+    this.isQntAlimentosModalOpen = false;
+    setTimeout(() => {
+      this.canDismiss = false;
+    }, 700);
+  }
+
+  confirmarAlimentos(){
+    let formValido = true;
+
+    this.alimentosRefeicao.forEach(alimento => {
+      if (alimento.isChecked && alimento.qnt <= 0){
+        formValido = false;
+      }
+    });
+
+    if (formValido){
+      this.closeQntAlimentosModal();
+      console.log(this.alimentosRefeicao);
+    } else {
+     this.presentAlert('Preencha todos os alimentos com algum peso');
+    }
   }
 
   ngOnInit() {
