@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -8,6 +8,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class PersonalizarPage implements OnInit {
 
+  currentTheme = 'light';
   isHorariosOpen = false;
   isAlimentosOpen = false;
   isRefeicaoOpen = false;
@@ -25,7 +26,7 @@ export class PersonalizarPage implements OnInit {
   isQntAlimentosModalOpen = false;
   canDismiss = false;
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private renderer: Renderer2) {}
 
   //Abrir e fechar modais
   setHorariosOpen(isOpen: boolean) {
@@ -101,6 +102,16 @@ export class PersonalizarPage implements OnInit {
       console.log(this.alimentosRefeicao);
     } else {
      this.presentAlert('Preencha todos os alimentos com algum peso');
+    }
+  }
+
+  onToggleColorTheme(event){
+    if(event.detail.checked){
+      this.currentTheme = 'dark';
+      this.renderer.setAttribute(document.body, 'color-theme', this.currentTheme);
+    } else {
+      this.currentTheme = 'light';
+      this.renderer.setAttribute(document.body, 'color-theme', this.currentTheme);
     }
   }
 

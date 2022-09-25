@@ -44,6 +44,15 @@
     </ion-item>
   </ion-list>
 
+  <div >
+    <h3 class="dark-title ion-text-center ion-margin-top">Mudar tema do app</h3>
+    <ion-item>
+      <ion-label color="primary" class="myLabel" *ngIf="this.currentTheme === 'dark'"><strong>Tema atual: <ion-text color="dark">Tema Escuro <ion-icon name="moon"></ion-icon></ion-text></strong></ion-label>
+      <ion-label color="primary" class="myLabel" *ngIf="this.currentTheme === 'light'"><strong>Tema atual: <ion-text color="warning">Tema Claro <ion-icon name="sunny" color="warning"></ion-icon></ion-text></strong></ion-label>
+      <ion-toggle class="ion-margin-end" (ionChange)="onToggleColorTheme($event)" color="dark"></ion-toggle>
+    </ion-item>
+  </div>
+
   <ion-modal [isOpen]="isHorariosOpen">
     <ng-template>
       <ion-header>
