@@ -7,28 +7,27 @@
 <ion-content color="light">
   <img src="../../assets/dd_logo.png" class="logo-img">
 
-  <form action="" class="login-form">
-    <ion-item>
-      <ion-label position="floating" color="medium">Nome completo</ion-label>
-      <ion-input type="email" placeholder="Tiago Santos Nascimento"></ion-input>
-    </ion-item>
+  <form class="login-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating" color="medium">Nome completo</ion-label>
+        <ion-input type="email" placeholder="Tiago Santos Nascimento" formControlName="nome"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating" color="medium">Email</ion-label>
-      <ion-input type="email" placeholder="exemplo@gmail.com"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="medium">Email</ion-label>
+        <ion-input type="email" placeholder="exemplo@gmail.com" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating" color="medium">Senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="medium">Senha</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating" color="medium">Confirmar Senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-
-    <ion-button color="tertiary" expand="block">Cadastrar</ion-button>
+      <ion-item>
+        <ion-label position="floating" color="medium">Confirmar Senha</ion-label>
+        <ion-input type="password" formControlName="confirmSenha"></ion-input>
+      </ion-item>
+    <ion-button type="submit" color="tertiary" expand="block">Cadastrar</ion-button>
   </form>
   <div class="separador">Ou</div>
   <div class="ion-padding">
