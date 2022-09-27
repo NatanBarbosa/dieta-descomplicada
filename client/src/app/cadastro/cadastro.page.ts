@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import serverApi from '../../api/serverApi.js';
+import axios from 'axios';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,8 +18,10 @@ export class CadastroPage implements OnInit {
   onSubmit(){
     //const valido = this.validarForm();
 
-    let usuarios = serverApi('/usuarios/all');
-    console.log(usuarios);
+    console.log(this.formData.value);
+
+    //serverApi.post('/usuarios/cadastrar', this.formData.value)
+      //.then(res => console.log(res.data));
   }
 
   validarForm(){

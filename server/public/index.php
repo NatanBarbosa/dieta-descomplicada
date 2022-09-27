@@ -4,9 +4,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../config/db.php';
+require __DIR__ . '/../config/Db.php';
 
 $app = AppFactory::create();
+
+//Configurar o Cors
+require __DIR__ . '/../config/cors.php';
 
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Olá!");

@@ -1,10 +1,7 @@
-function serverApi(route) {
-  fetch(`http://localhost:8080${route}`)
-    .then(response => {
-      return response;
-    }).catch(err => {
-      return err;
-  })
-}
+import axios from "axios";
 
-export default serverApi;
+const serverAPI = axios.create({
+  baseURL: "http://localhost:8080",
+});
+
+export default serverAPI;
