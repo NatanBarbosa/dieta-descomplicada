@@ -32,7 +32,7 @@ $app->get('/usuarios/logar/{email}/{senha}', function (Request $request, Respons
 
 $app->post('/usuarios/cadastrar', function (Request $request, Response $response, $args){
     $post = $request->getParsedBody();
-    $response->getBody()->write($post);
+    $response->getBody()->write(json_encode($post));
     return $response
         ->withHeader('content-type', 'application/json')
         ->withStatus(200);

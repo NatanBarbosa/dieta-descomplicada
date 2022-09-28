@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import serverApi from '../../api/serverApi.js';
-import axios from 'axios';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-cadastro',
@@ -12,16 +12,28 @@ import axios from 'axios';
 export class CadastroPage implements OnInit {
 
   private formData: FormGroup;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+  };
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private httpClient: HttpClient) { }
 
   onSubmit(){
     //const valido = this.validarForm();
 
-    console.log(this.formData.value);
+    fetch('http://localhost:8080/usuario/cadastrar', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: this.formData.value
+    })
+      .then(res => console.log(res));
 
-    //serverApi.post('/usuarios/cadastrar', this.formData.value)
-      //.then(res => console.log(res.data));
+      /*this.httpClient.post('http://localhost:8080/usuario/cadastrar', this.formData.value, this.httpOptions).subscribe(
+        res => console.log(res)
+      );*/
   }
 
   validarForm(){
